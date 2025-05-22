@@ -1,0 +1,157 @@
+====================================
+🚀 POSTMAN TESTING GUIDE (Auth API)
+====================================
+
+📌 BASE URL:
+http://localhost:5000/api
+
+===========================
+1. REGISTER (Send OTP Email)
+===========================
+🔹 Endpoint: POST /register
+
+Headers:
+Content-Type: application/json
+
+Body (raw JSON):
+{
+  "email": "testuser@example.com"
+}
+
+Expected Response:
+{
+  "message": "Verification email sent"
+}
+
+✅ Check your console or mailbox for the token
+
+====================================
+2. VERIFY REGISTRATION (Set Password)
+====================================
+🔹 Endpoint: POST /verify-registration
+
+Headers:
+Content-Type: application/json
+
+Body (raw JSON):
+{
+  "token": "PASTE_THE_VERIFICATION_TOKEN_HERE",
+  "password": "yourStrongPassword123"
+}
+
+Expected Response:
+{
+  "message": "Account verified successfully"
+}
+
+==================
+3. LOGIN USER
+==================
+🔹 Endpoint: POST /login
+
+Headers:
+Content-Type: application/json
+
+Body (raw JSON):
+{
+  "email": "testuser@example.com",
+  "password": "yourStrongPassword123"
+}
+
+Expected Response:
+{
+  "message": "Login successful",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
+}
+
+✏️ Copy the token for use in the next step
+
+===========================
+4. ACCESS PROTECTED ROUTE
+===========================
+🔹 Endpoint: GET /dashboard
+
+Headers:
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+
+Expected Response:
+{
+  "message": "Welcome to the protected dashboard!",
+  "userId": "ID_OF_USER"
+}
+
+=====================================
+🔐 PASSWORD RESET FLOW (NEW FEATURE)
+=====================================
+
+===============================
+5. REQUEST PASSWORD RESET LINK
+===============================
+🔹 Endpoint: POST /request-pass-reset
+
+Headers:
+Content-Type: application/json
+
+Body (raw JSON):
+{
+  "email": "testuser@example.com"
+}
+
+Expected Response:
+{
+  "message": "Password reset email sent"
+}
+
+✅ Check your email for the reset link. The URL will contain a token like:
+http://localhost:3000/reset-password?token=abc123...
+
+====================================
+6. RESET PASSWORD USING TOKEN
+====================================
+🔹 Endpoint: POST /reset-password
+
+Headers:
+Content-Type: application/json
+
+Body (raw JSON):
+{
+  "token": "PASTE_TOKEN_FROM_EMAIL",
+  "newPassword": "yourNewPassword456"
+}
+
+Expected Response:
+{
+  "message": "Password reset successful"
+}
+
+====================================
+7. LOGIN WITH NEW PASSWORD
+====================================
+🔹 Endpoint: POST /login
+
+Headers:
+Content-Type: application/json
+
+Body (raw JSON):
+{
+  "email": "testuser@example.com",
+  "password": "yourNewPassword456"
+}
+
+Expected Response:
+{
+  "message": "Login successful",
+  "token": "..."
+}
+
+=========================================
+✅ FINAL CHECKLIST (UPDATED)
+=========================================
+☑️ Register with new email ✅  
+☑️ Use console/mail to get token ✅  
+☑️ Verify using token + password ✅  
+☑️ Login with credentials ✅  
+☑️ Copy JWT and access /dashboard ✅  
+☑️ Test password reset email ✅  
+☑️ Reset password with token ✅  
+☑️ Re-login with new password ✅
