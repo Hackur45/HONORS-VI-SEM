@@ -1,0 +1,52 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Coverage and test output
+coverage/
+.nyc_output/
+jest-test-results.json
+
+# Build artifacts (if any)
+dist/
+build/
+
+# Nodemailer attachments (if you store any locally)
+attachments/
+
+# PM2 logs
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Nginx config backups or generated keys (if applicable)
+*.crt
+*.key
+
+# Debugging files
+debug.log
+*.tgz
+
+# Optional: ignore CLI test script logs or cache
+cli-log.txt
+.cache/
