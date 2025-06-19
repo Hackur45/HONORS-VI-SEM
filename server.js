@@ -26,10 +26,7 @@ const protectedRoutes = require("./routes/protected"); // include your protected
 app.use("/api", authRoutes);
 app.use("/api", protectedRoutes); // secure endpoints like /api/dashboard
 
-// Start Server
-const PORT = process.env.PORT || 5000;
-const server = app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+app.listen(process.env.PORT || 5500, () => {
+  console.log(`Server running on port ${process.env.PORT || 5500}`);
 });
 
-module.exports = server;  // export the server instead of app
