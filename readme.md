@@ -30,6 +30,19 @@ A secure, scalable, and testable backend application built with **Express.js** a
 
 ---
 
+## 🏗 Backend Architecture
+
+![Backend Architecture](diagram.png)
+
+The backend architecture includes:
+- Express.js server handling API requests.
+- MongoDB Atlas for data persistence.
+- JWT-based authentication for secure access.
+- Email services for verification and password reset.
+- Middleware for authentication and rate limiting.
+
+---
+
 ## 🛠 Setup Instructions
 
 ### 1. Clone the Repo
@@ -94,18 +107,6 @@ A protected route that requires a valid Bearer token (JWT). Returns a welcome me
 
 ---
 
-## 🏗 Backend Architecture
-
-![Backend Architecture](diagram.png)
-
-The backend architecture includes:
-- Express.js server handling API requests.
-- MongoDB Atlas for data persistence.
-- JWT-based authentication for secure access.
-- Email services for verification and password reset.
-- Middleware for authentication and rate limiting.
-
----
 
 ## 🧪 Running Tests
 
